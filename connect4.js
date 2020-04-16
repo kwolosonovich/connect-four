@@ -9,47 +9,43 @@ const WIDTH = 7;
 const HEIGHT = 6;
 
 var currPlayer = 1; // active player: 1 or 2
-const board = []; // array of rows, each row is array of cells  (board[y][x])
+const board = []; // array of rows
 
-/** makeBoard: create in-JS board structure:
- *    board = array of rows, each row is array of cells  (board[y][x])
- */
-
-function boardStructure() {
-
-    for (let y = 0; y < HEIGHT; y++) {
-      board.push(
-        Array.from({ 
-          length: WIDTH 
-        }));
-    }
-
-  return board
-}
-console.log(boardStructure());
+// board structure - array of rows, each row is array of cells  (board[y][x])
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  for (let y = 0; y < HEIGHT; y++) {
+    board.push(
+      Array.from({
+        length: WIDTH,
+      })
+    );
+  }
+  return board;
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
 function makeHtmlBoard() {
-  // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
+  // html table
+  const htmlBoard = document.getElementById("board");
 
-  // TODO: add comment for this code
-  var top = document.createElement("tr");
+  // top column of table - drop piece section with eventListener
+  const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
+  // append headCells to the top of each column by iterating over the row
   for (var x = 0; x < WIDTH; x++) {
     var headCell = document.createElement("td");
     headCell.setAttribute("id", x);
     top.append(headCell);
   }
-  htmlBoard.append(top);
 
-  // TODO: add comment for this code
+  // iterate over table rows and column cells 
+  // append cells to the row spaning the width of the row
+  // append rows to the htmlBoard spaning the height of the board
+  htmlBoard.append(top);
   for (var y = 0; y < HEIGHT; y++) {
     const row = document.createElement("tr");
     for (var x = 0; x < WIDTH; x++) {
@@ -65,6 +61,7 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 0
+  if 
   return 0;
 }
 
