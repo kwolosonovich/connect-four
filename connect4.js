@@ -4,11 +4,14 @@
  * column until a player gets four-in-a-row (horiz, vert, or diag) or until
  * board fills (tie)
  */
+  // html table
+   const htmlBoard = document.getElementById("board");
+
 
 const WIDTH = 7;
 const HEIGHT = 6;
 
-var currPlayer = 1; // active player: 1 or 2
+let currPlayer = 1; // active player: 1 or 2
 const board = []; // array of rows
 
 // board structure - array of rows, each row is array of cells  (board[y][x])
@@ -27,8 +30,6 @@ function makeBoard() {
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
 function makeHtmlBoard() {
-  // html table
-  const htmlBoard = document.getElementById("board");
 
   // top column of table - drop piece section with eventListener
   const top = document.createElement("tr");
@@ -46,6 +47,7 @@ function makeHtmlBoard() {
   // append cells to the row spaning the width of the row
   // append rows to the htmlBoard spaning the height of the board
   htmlBoard.append(top);
+
   for (var y = 0; y < HEIGHT; y++) {
     const row = document.createElement("tr");
     for (var x = 0; x < WIDTH; x++) {
@@ -58,17 +60,40 @@ function makeHtmlBoard() {
 }
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
+// iterate over column to find empty y
+
+//  TODO: write the real version of this, rather than always returning 0
+
+// const findSpotForCol = ([=x) => {
+//   for (y of x) {
+//     if (false) {
+//       return y
+//     }
+//   }
+//   return null;
+// };
 
 function findSpotForCol(x) {
-  // TODO: write the real version of this, rather than always returning 0
-  if 
-  return 0;
+  for (let y = HEIGHT - 1; y >= 0; y--) {
+    if (!board[y][x]) {
+      return y;
+    }
+  }
+  return null;
 }
 
+
 /** placeInTable: update DOM to place piece into HTML table of board */
+// create piece div and append to cell of players selection
 
 function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
+  let piece = document.createElement('div')
+  piece.className += 'piece'
+  piece.className += 'player-' + currPlayer
+
+  
+  let play = document.getElementById(`${y}-${x}`);
+  play.append(piece)
 }
 
 /** endGame: announce game end */
@@ -81,7 +106,7 @@ function endGame(msg) {
 
 function handleClick(evt) {
   // get x from ID of clicked cell
-  var x = +evt.target.id;
+  const x = +evt.target.id;
 
   // get next spot in column (if none, ignore click)
   var y = findSpotForCol(x);
