@@ -1,43 +1,51 @@
 /* game board table */
-body {
-  display: block;
-  align-content: center;
-  background: -moz-radial-gradient(center, #DEE3E4 0%, #E4F9FF 50%, #C9E6EE 100%);
-  background: -webkit-radial-gradient(center, #DEE3E4 0%, #E4F9FF 50%, #C9E6EE 100%);
-  background: radial-gradient(ellipse at center, #DEE3E4 0%, #E4F9FF 50%, #C9E6EE 100%);
-}
-.header {
-  padding: 60px;  
-  text-align: center;
-  background-color: #0fabbc;
-  color: #fa163f;
-  text-shadow: 0px 0px 12px #FFFEFD;
-  
+.main {
+  background: #E4E4E4;
+  background: -moz-radial-gradient(center, #E4E4E4 0%, #E4F9FF 56%, #94A9AF 100%);
+  background: -webkit-radial-gradient(center, #E4E4E4 0%, #E4F9FF 56%, #94A9AF 100%);
+  background: radial-gradient(ellipse at center, #E4E4E4 0%, #E4F9FF 56%, #94A9AF 100%);
+  border: 20px solid #0fabbc;
+  border-radius: 15%;
+  border-left: 50px double #0fabbc;
+  border-right: 50px double #0fabbc;;
+  height: 100%;
 }
 
+h1 {
+  margin-top: 50px;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 4px;
+  font-size: 70px;
+  text-shadow: 15px 15px 15px white;
+  color: #fa163f;
+  text-align: center;
+}
+
+html, body {
+  background-color: #fa163f;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
 
 #board td {
-  width: 50px;
-  height: 50px;
-  border: solid 1px #0fabbc; 
+  width: 70px;
+  height: 70px;
+  border: 3px groove #0fabbc; 
   border-radius: 100px;
 }
 
 #board {
-  background: transparent;
   margin: auto;
-  justify-content: center;
-  padding-top: 80px;
-  height: auto;
-
+  padding: 20px 0px;
 }
 /* pieces are div within game table cells: draw as colored circles */
-
 .piece {
+  
   margin: 5px;
-  width: 80%;
-  height: 80%;
-  border-radius: 100px;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
 }
 
 .player-1 {
@@ -48,21 +56,20 @@ body {
   background-color:#12cad6;
 }
 
-/* column-top is table row of clickable areas for each column */
-
 #column-top td {
-  border: dashed 1px lightgray;
+  border: 5px dotted white;
 }
  
 #column-top td:hover {
-  background:  url("images/arrow.png");
+    background-image: url("images/arrow1.svg");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    animation-name: bounce;
 } 
 
-
-.footer {
-  position: fixed;
-  height: 50px;  
-  width: 100%;
-  background-color:  #0fabbc;
-  bottom: 0;
+hr {
+  border-top: 8px solid white;
+  width: 40%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
