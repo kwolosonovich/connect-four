@@ -64,7 +64,6 @@ html, body {
     background-image: url("images/arrow1.svg");
     background-repeat: no-repeat; 
     background-size: cover;
-    animation-name: bounce;
 } 
 
 hr {
