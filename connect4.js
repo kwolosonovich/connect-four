@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
  * board fills (tie)
  */
 // html table
-const cellFillCheck = document.querySelectorAll("piece").length;
-
 let playerMove = 1;
 
 const WIDTH = 7; // y
@@ -58,10 +56,8 @@ function makeHtmlBoard() {
   }
 }
 
-/** findSpotForCol: given column x, return top empty y (null if filled) */
+// findSpotForCol: given column x, return top empty y (null if filled)
 // iterate over column to find empty y
-
-//  TODO: write the real version of this, rather than always returning 0
 
 function findSpotForCol(x) {
   for (let y = HEIGHT - 1; y >= 0; y--) {
@@ -72,7 +68,7 @@ function findSpotForCol(x) {
   return null;
 }
 
-/** placeInTable: update DOM to place piece into HTML table of board */
+// placeInTable: update DOM to place piece into HTML table of board
 // create piece div and append to cell of players selection
 
 function placeInTable(y, x) {
@@ -83,7 +79,7 @@ function placeInTable(y, x) {
   play.append(piece);
 }
 
-/** endGame: announce game end */
+//endGame: announce game end 
 
 function endGame(msg) {
   alert(msg);
@@ -103,7 +99,6 @@ function handleClick(evt) {
   }
 
   // place piece in board and add to HTML table
-  // TODO: add line to update in-memory board
   board[y][x] = currPlayer;
   placeInTable(y, x);
 
@@ -113,8 +108,9 @@ function handleClick(evt) {
   }
 
   // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
   // let cellFillCheck = document.getElementsByClassName('piece')
+  let cellFillCheck = document.querySelectorAll(".piece").length
+    console.log(cellFillCheck)
     if (cellFillCheck === 42) {
       console.log(cellFillCheck)
       return endGame('Tie!')
@@ -122,9 +118,7 @@ function handleClick(evt) {
 
   // switch players
 
-
   currPlayer = currPlayer === 1 ? 2 : 1; //test
-
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
